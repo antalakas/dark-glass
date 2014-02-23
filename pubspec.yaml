@@ -1,0 +1,5 @@
+name: DarkGlass
+description: A sample web application
+dependencies:
+  browser: any
+  google_mirror_v1_api: '>=0.4.8 <0.5.0'
