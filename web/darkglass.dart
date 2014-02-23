@@ -3,12 +3,14 @@ import "package:google_oauth2_client/google_oauth2_browser.dart";
 import "package:google_mirror_v1_api/mirror_v1_api_browser.dart";
 import "package:google_mirror_v1_api/mirror_v1_api_client.dart";
 
-final String CLIENT_ID = '881188623772.apps.googleusercontent.com';
+final String CLIENT_ID = '826661342379-1rladko7bt5kkhuli67tvkfvvqh8u6ip.apps.googleusercontent.com';
+//Pieter-Jan: 826661342379-1rladko7bt5kkhuli67tvkfvvqh8u6ip.apps.googleusercontent.com
+//Friedger glass: 6042312500-o1e06j0glcho28qgsgn608t4knvp9r5s.apps.googleusercontent.com
 final List<String> SCOPES = [
 'https://www.googleapis.com/auth/userinfo.profile',
 'https://www.googleapis.com/auth/glass.timeline'
 ];
-final String API_KEY = 'AIzaSyBfA-Zqg9hVWVBJHLXj0ycQTyB3J0IYyN0';
+//final String API_KEY = 'AIzaSyBfA-Zqg9hVWVBJHLXj0ycQTyB3J0IYyN0';
 
 GoogleOAuth2 auth;
 
