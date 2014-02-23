@@ -3,29 +3,30 @@ import "package:google_oauth2_client/google_oauth2_browser.dart";
 import "package:google_mirror_v1_api/mirror_v1_api_browser.dart";
 import "package:google_mirror_v1_api/mirror_v1_api_client.dart";
 
-final String CLIENT_ID = '881188623772.apps.googleusercontent.com';
+final String CLIENT_ID = '1094104573644-ocrus19vdkkv26oft9pk3euler8h9hdd.apps.googleusercontent.com';
 final List<String> SCOPES = [
 'https://www.googleapis.com/auth/userinfo.profile',
 'https://www.googleapis.com/auth/glass.timeline'
 ];
-final String API_KEY = 'AIzaSyBfA-Zqg9hVWVBJHLXj0ycQTyB3J0IYyN0';
+//final String API_KEY = 'AIzaSyAKsSgvjjAVOC6xFR7bAUBsLf8COtZFLsA';
 
 GoogleOAuth2 auth;
-
+//  <img src="https://www.dartlang.org/imgs/dart-logo.png" height="100%" width="100%">  
+//<footer>    
+//<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJxQTFRFAAAAAIvMdsvDAIvMdsvDAIvMdsvDLaTJAIvMOqnHdsvDAIvMdsvDAIvMKaLJdsvDAIvMAIvMdsvDAIvMdsvDdsvDAIvMAIvMAZnFdsvDAILHAIPHAITIAIXJAIfKAIjKAIrLAIrMAIvMAJXHAJjFC5i/I6HENr2yOb6zPr+0TsK4UsO5WbnEWcW8Xsa9Yse+Zsi/asjAc8rCdsvDdt4SRQAAABp0Uk5TABAQICAwMFBgYGBwcICAgI+vr7+/z9/v7+97IXGnAAAAqUlEQVQYV13QxxaCQBBE0VZkjBgAGVEBaVEUM/P//yaTGg5vV3dZANTCZ9BvFAoR93kVC9FnthW6uIPTJ7UkdHaXvS2LXKNBURInyDXPsShbzjU7XCpxhooDVGo5QcQAJmjUco64AY/UcIrowYCTaj5KBZeTaj5JBTc6l11OlQKMf497y1ahefFb3TQfcqtM/fipJF/X9gnDon6/ah/aDDfNOgosNA2b8QdGciZlh/U93AAAAABJRU5ErkJggg==" class="left">  
+//<p>Dart Hacking</p>   
+//</footer> 
 final String timeLinehtml = """
 <article class="photo cover-only">  
-  <img src="https://www.dartlang.org/imgs/dart-logo.png" height="100%" width="100%">  
+
   <div class="photo-overlay"></div>  
   <section>    
     <p class="text-auto-size">
-      <strong class="white">Google Glass</strong> 
-      <em class="blue">Dartified!</em>
+      <strong class="white">Dark Glass</strong> 
+      <em class="blue">Hello World!</em>
     </p>  
   </section>
-  <footer>    
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJxQTFRFAAAAAIvMdsvDAIvMdsvDAIvMdsvDLaTJAIvMOqnHdsvDAIvMdsvDAIvMKaLJdsvDAIvMAIvMdsvDAIvMdsvDdsvDAIvMAIvMAZnFdsvDAILHAIPHAITIAIXJAIfKAIjKAIrLAIrMAIvMAJXHAJjFC5i/I6HENr2yOb6zPr+0TsK4UsO5WbnEWcW8Xsa9Yse+Zsi/asjAc8rCdsvDdt4SRQAAABp0Uk5TABAQICAwMFBgYGBwcICAgI+vr7+/z9/v7+97IXGnAAAAqUlEQVQYV13QxxaCQBBE0VZkjBgAGVEBaVEUM/P//yaTGg5vV3dZANTCZ9BvFAoR93kVC9FnthW6uIPTJ7UkdHaXvS2LXKNBURInyDXPsShbzjU7XCpxhooDVGo5QcQAJmjUco64AY/UcIrowYCTaj5KBZeTaj5JBTc6l11OlQKMf497y1ahefFb3TQfcqtM/fipJF/X9gnDon6/ah/aDDfNOgosNA2b8QdGciZlh/U93AAAAABJRU5ErkJggg==" class="left">  
-    <p>Dart Hacking</p>   
-  </footer> 
+
 </article>
 
 <article class="auto-paginate">  
