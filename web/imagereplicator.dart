@@ -35,8 +35,7 @@ class ImageReplicator {
     }
   
     ws.onOpen.listen((e) {
-      outputMsg('Connected');
-      ws.send('Hello from Dart!');
+      outputMsg('Connected');      
     });
   
     ws.onClose.listen((e) {
