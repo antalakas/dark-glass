@@ -2,6 +2,7 @@ import 'dart:html' as html;
 import "package:google_oauth2_client/google_oauth2_browser.dart";
 import "package:google_mirror_v1_api/mirror_v1_api_browser.dart";
 import "package:google_mirror_v1_api/mirror_v1_api_client.dart";
+import "imagereplicator.dart";
 
 final String CLIENT_ID = '826661342379-1rladko7bt5kkhuli67tvkfvvqh8u6ip.apps.googleusercontent.com';
 //Pieter-Jan: 826661342379-1rladko7bt5kkhuli67tvkfvvqh8u6ip.apps.googleusercontent.com
@@ -83,7 +84,9 @@ void screenshotButtonClick(ev) {
         html.querySelector("#screenshot-stream");
     
     ctx.drawImage(screenshotStream, 0, 0);
-    img.src = canvas.toDataUrl('image/webp');
+    var imgData = canvas.toDataUrl('image/webp');
+    img.src = imgData;
+    imageReplicator.replicate(imgData);
   }
   else
   {
@@ -112,6 +115,8 @@ void screenshotButtonClick(ev) {
 
 }
 
+ImageReplicator imageReplicator;
+
 void main() {
   auth = new GoogleOAuth2(CLIENT_ID, SCOPES);
 
@@ -128,4 +133,6 @@ void main() {
     auth.logout();
     print("Signing you out.");
   });
+  
+  imageReplicator = new ImageReplicator.withImage(html.querySelector("#screenshot"));
 }
