@@ -40,23 +40,19 @@ html.ImageElement img;
 
 
 final String timeLinehtml = """
-<article class="photo cover-only">  
+<article class="photo">  
 
-  <footer>
-   <img src="${img.src}" class="left">    
-  </footer>
+   <img src="${img.src}" class="left"  width="100%" height="100%">
 
-  <div class="photo-overlay"></div>  
+<div class="overlay-gradient-tall-dark"/>
   <section>    
     <p class="text-auto-size">
-      <strong class="white">Dark Glass</strong> 
-      <em class="blue">Hello World3!</em>
+      <strong class="white">This is you, via</strong> 
+      <em class="blue">Dark Glass Selfie!</em>
     </p>  
   </section>
 
 </article>
-
-
 """;
 
 void insertCard() {

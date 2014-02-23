@@ -27,8 +27,8 @@ h1, p {
 
 
 .videostream, #cssfilters-stream, #screenshot {
-  width: 307px;
-  height: 250px;
+  width: 400px;
+  height: 200px;
 }
 .videostream, #cssfilters-stream {
   background: rgba(255,255,255,0.5);
