@@ -16,6 +16,19 @@ GoogleOAuth2 auth;
 //<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJxQTFRFAAAAAIvMdsvDAIvMdsvDAIvMdsvDLaTJAIvMOqnHdsvDAIvMdsvDAIvMKaLJdsvDAIvMAIvMdsvDAIvMdsvDdsvDAIvMAIvMAZnFdsvDAILHAIPHAITIAIXJAIfKAIjKAIrLAIrMAIvMAJXHAJjFC5i/I6HENr2yOb6zPr+0TsK4UsO5WbnEWcW8Xsa9Yse+Zsi/asjAc8rCdsvDdt4SRQAAABp0Uk5TABAQICAwMFBgYGBwcICAgI+vr7+/z9/v7+97IXGnAAAAqUlEQVQYV13QxxaCQBBE0VZkjBgAGVEBaVEUM/P//yaTGg5vV3dZANTCZ9BvFAoR93kVC9FnthW6uIPTJ7UkdHaXvS2LXKNBURInyDXPsShbzjU7XCpxhooDVGo5QcQAJmjUco64AY/UcIrowYCTaj5KBZeTaj5JBTc6l11OlQKMf497y1ahefFb3TQfcqtM/fipJF/X9gnDon6/ah/aDDfNOgosNA2b8QdGciZlh/U93AAAAABJRU5ErkJggg==" class="left">  
 //<p>Dart Hacking</p>   
 //</footer> 
+
+//<article class="auto-paginate">  
+//  <ol class="text-x-small">  
+//  <strong>Instructions:</strong>
+//  <hr>  
+//    <li>First item</li>    
+//    <li>Second item</li>    
+//    <li>Third item</li>    
+//    <li>Fourth item</li>  
+//  </ol>
+//</article>
+
+
 final String timeLinehtml = """
 <article class="photo cover-only">  
 
@@ -23,22 +36,13 @@ final String timeLinehtml = """
   <section>    
     <p class="text-auto-size">
       <strong class="white">Dark Glass</strong> 
-      <em class="blue">Hello World!</em>
+      <em class="blue">Hello World2!</em>
     </p>  
   </section>
 
 </article>
 
-<article class="auto-paginate">  
-  <ol class="text-x-small">  
-  <strong>Instructions:</strong>
-  <hr>  
-    <li>First item</li>    
-    <li>Second item</li>    
-    <li>Third item</li>    
-    <li>Fourth item</li>  
-  </ol>
-</article>
+
 """;
 
 void insertCard(Token token) {
@@ -63,9 +67,54 @@ void insertCard(Token token) {
       onError: (error) => html.querySelector("#output").text = error);
 }
 
+bool isStreaming = false;
+
+void screenshotButtonClick(ev) {
+  if (isStreaming)
+  {
+    var img = html.document.querySelector('#screenshot');
+    html.CanvasElement canvas = html.document.querySelector('#screenshot-canvas');
+    var ctx = canvas.getContext('2d');
+    
+    html.VideoElement screenshotStream = 
+        html.querySelector("#screenshot-stream");
+    
+    ctx.drawImage(screenshotStream, 0, 0);
+    img.src = canvas.toDataUrl('image/webp');
+  }
+  else
+  {
+    html.window.navigator.getUserMedia(video: true)
+      .then((stream) {
+        
+        html.VideoElement screenshotStream = 
+            html.querySelector("#screenshot-stream");
+        
+        screenshotStream.autoplay = true;
+        screenshotStream.src = html.Url.createObjectUrl(stream);
+        
+        html.ButtonElement screenshotButton = html.querySelector("#screenshot-button");
+        screenshotButton.text = 'Take Shot';
+        
+        isStreaming = true;
+        
+//      var video = new html.VideoElement()
+//      ..autoplay = true
+//      ..src = html.Url.createObjectUrl(stream)
+//      ..onLoadedMetadata.listen((e) => print(e));
+//      html.document.body.append(video);
+      });
+  }
+  
+
+}
+
 void main() {
   auth = new GoogleOAuth2(CLIENT_ID, SCOPES);
 
+  var screenshotButton = html.querySelector("#screenshot-button");
+  screenshotButton.onClick.listen((ev) => screenshotButtonClick(ev));
+   
   html.querySelector("#sign-in").onClick.listen((e) {
     print("Attempting to log you in.");
     auth.login().then(insertCard,

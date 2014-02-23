@@ -5,13 +5,37 @@
     <meta charset="utf-8">
     <title>Mirror example</title>
     <link rel="stylesheet" href="darkglass.css">
+    
+    <style>
+      .videostream, #cssfilters-stream, #screenshot {
+        width: 307px;
+        height: 250px;
+      }
+      .videostream, #cssfilters-stream {
+        background: rgba(255,255,255,0.5);
+        border: 1px solid #ccc;
+      }
+      #screenshot {
+        vertical-align: top;
+      }
+    </style>
   </head>
+  
   <body>
+  
+    <div style="text-align:center;">
+      <video id="screenshot-stream" class="videostream" autoplay></video>
+      <img id="screenshot" src="">
+        <canvas id="screenshot-canvas" style="display:none;"></canvas>
+      <p><button id="screenshot-button">Capture</button> <button id="screenshot-stop-button">Stop</button></p>
+    </div>
+    
     <button id="sign-in">sign-in & send</button>
     <button id="sign-out">sign-out</button>
     <div id="container_id">
       <p id="output"></p>
     </div>
+    
     <script type="application/dart" src="darkglass.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
