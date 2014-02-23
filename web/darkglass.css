@@ -24,3 +24,19 @@ h1, p {
   text-align: left;
   margin-top: 10px;
 }
+
+
+.videostream, #cssfilters-stream, #screenshot {
+  width: 307px;
+  height: 250px;
+}
+.videostream, #cssfilters-stream {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #ccc;
+}
+#screenshot {
+  vertical-align: top;
+}
+#screenshot-button {
+  vertical-align: top;
+}

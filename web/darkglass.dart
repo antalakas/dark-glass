@@ -59,7 +59,7 @@ final String timeLinehtml = """
 
 """;
 
-void insertCard(Token token) {
+void insertCard() {
   Mirror mirror = new Mirror(auth);
   mirror.makeAuthRequests = true;
 
@@ -123,16 +123,25 @@ void screenshotButtonClick(ev) {
 
 }
 
+void signInDone(Token token){
+  signedIn = true;
+}
+
+int signedIn = false;
+
 void main() {
   auth = new GoogleOAuth2(CLIENT_ID, SCOPES);
 
   var screenshotButton = html.querySelector("#screenshot-button");
   screenshotButton.onClick.listen((ev) => screenshotButtonClick(ev));
+  
+
+  print("Attempting to log you in.");
+  auth.login().then(signInDone,
+      onError: (error) => print("login error: $error"));
    
   html.querySelector("#sign-in").onClick.listen((e) {
-    print("Attempting to log you in.");
-    auth.login().then(insertCard,
-        onError: (error) => print("login error: $error"));
+    insertCard();
   });
 
   html.querySelector("#sign-out").onClick.listen((e) {
