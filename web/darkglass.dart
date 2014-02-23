@@ -32,14 +32,25 @@ GoogleOAuth2 auth;
 //</article>
 
 
+//<footer>    
+//<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJxQTFRFAAAAAIvMdsvDAIvMdsvDAIvMdsvDLaTJAIvMOqnHdsvDAIvMdsvDAIvMKaLJdsvDAIvMAIvMdsvDAIvMdsvDdsvDAIvMAIvMAZnFdsvDAILHAIPHAITIAIXJAIfKAIjKAIrLAIrMAIvMAJXHAJjFC5i/I6HENr2yOb6zPr+0TsK4UsO5WbnEWcW8Xsa9Yse+Zsi/asjAc8rCdsvDdt4SRQAAABp0Uk5TABAQICAwMFBgYGBwcICAgI+vr7+/z9/v7+97IXGnAAAAqUlEQVQYV13QxxaCQBBE0VZkjBgAGVEBaVEUM/P//yaTGg5vV3dZANTCZ9BvFAoR93kVC9FnthW6uIPTJ7UkdHaXvS2LXKNBURInyDXPsShbzjU7XCpxhooDVGo5QcQAJmjUco64AY/UcIrowYCTaj5KBZeTaj5JBTc6l11OlQKMf497y1ahefFb3TQfcqtM/fipJF/X9gnDon6/ah/aDDfNOgosNA2b8QdGciZlh/U93AAAAABJRU5ErkJggg==" class="left">    
+//</footer> 
+
+html.ImageElement img;
+
+
 final String timeLinehtml = """
 <article class="photo cover-only">  
+
+  <footer>
+   <img src="${img.src}" class="left">    
+  </footer>
 
   <div class="photo-overlay"></div>  
   <section>    
     <p class="text-auto-size">
       <strong class="white">Dark Glass</strong> 
-      <em class="blue">Hello World2!</em>
+      <em class="blue">Hello World3!</em>
     </p>  
   </section>
 
@@ -75,7 +86,7 @@ bool isStreaming = false;
 void screenshotButtonClick(ev) {
   if (isStreaming)
   {
-    var img = html.document.querySelector('#screenshot');
+    img = html.document.querySelector('#screenshot');
     html.CanvasElement canvas = html.document.querySelector('#screenshot-canvas');
     var ctx = canvas.getContext('2d');
     
