@@ -82,7 +82,7 @@ bool isStreaming = false;
 
 void screenshotButtonClick(ev) {
   if (isStreaming)
-  {
+  {    
     img = html.document.querySelector('#screenshot');
     html.CanvasElement canvas = html.document.querySelector('#screenshot-canvas');
     var ctx = canvas.getContext('2d');
@@ -149,6 +149,8 @@ void main() {
     auth.logout();
     print("Signing you out.");
   });
+  
+  img = html.document.querySelector('#screenshot');
   
   imageReplicator = new ImageReplicator.withImage(html.querySelector("#screenshot"));
 }
