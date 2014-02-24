@@ -22,7 +22,7 @@ void main() {
   connections = new List();
   
   runZoned(() {
-    HttpServer.bind('localhost', port).then((server) {
+    HttpServer.bind('0.0.0.0', port).then((server) {
       
       print('listening for connections on $port');
       server.listen((HttpRequest request) {
